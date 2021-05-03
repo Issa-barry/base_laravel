@@ -1,0 +1,18 @@
+
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+
+echo "# base_laravel" >> README.md
+git init
+git add -A
+git commit -m "first Add All "
+git branch -M main
+git remote add origin https://github.com/Issa-barry/base_laravel.git
+git push -u origin main
