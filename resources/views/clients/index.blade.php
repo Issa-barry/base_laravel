@@ -6,12 +6,24 @@
         <h1>Ajoutez un client !</h1>
          <form action="/clients" method="POST">
             @csrf
-            <div class="mb-3">
-              <label for="exampleInputName" class="form-label">Pseudo </label>
-              <input type="text" name="pseudo"  class="form-control  " id="exampleInputName" aria-describedby="nameHelp">
-             
+            <div class="form-group mb-2">
+              <label>Pseudo name</label>
+              <input type="text" name="name" class="form-control  @error('name')is-invalid @enderror"  placeholder="Enter pseudo">
+              @error('name') <small  class=" invalid-feedback">{{$errors->first('name')}}</small> @enderror
             </div>
-         
+      
+            <div class="form-group mb-2">
+              <label>Email address</label>
+              <input type="email" name="email" class="form-control @error('email')is-invalid @enderror" " placeholder="Enter email">
+              @error('email') <small  class=" invalid-feedback">{{$errors->first('email')}}</small> @enderror
+            </div>
+            <div class="form-group mb-2">
+              <select name="status" class="form-select @error('status')is-invalid @enderror" aria-label="Default select example">
+                <option value="1">Actif</option>
+                <option value="0">Inactif</option>
+              </select>
+              @error('status') <small  class=" invalid-feedback">{{$errors->first('status')}}</small> @enderror
+            </div>
             <button type="submit" class="btn btn-primary">Ajouter le client</button>
           </form>
 
@@ -23,7 +35,9 @@
               <tr>
                 <th scope="col">Refence</th>
                 <th scope="col">Nom</th>
+                <th scope="col">Email</th>
                 <th scope="col">Membre depuis</th>
+                <th scope="col">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -31,7 +45,10 @@
                 <tr>
                     <th scope="row">{{$item->id}}</th>
                     <td>{{$item->name}}</td>
+                    <td>{{$item->email}}</td>
                     <td>{{$item->created_at}}</td>
+                    <td>{{$item->status}}</td>
+                   
                 </tr>
                 @endforeach    
             </tbody>

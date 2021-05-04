@@ -7,4 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Client extends Model
 {
     //
+    protected $fillable = ['name','email','status'];
+
+
+    public function scopeStatus($query)
+    {
+        return $query->where('status',1)->get();
+    }
 }

@@ -11,21 +11,25 @@ class ClientsController extends Controller
 
     public function list()
     {
-        $clients = Client::all();
+
+         $clients = client::status();
 
         return view('clients.index', [
             'clients' => $clients
         ]);
     }
+    
     public function store()
     {
 
-   
 
-        $psudo = request('pseudo');
-        $client =  new Client();
-        $client->name = $psudo;
-        $client->save();
+      $data = request()->validate([
+            'name' => 'required|min:3|max:255',
+            'email'  => 'required|email',
+            'status'  => 'required|integer',   
+        ]);
+    
+       Client::create($data);
 
         return back();
     }
