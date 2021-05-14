@@ -16,22 +16,27 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
-              <a class="navbar-brand" href="/">Navbar</a>
+              <a class="navbar-brand" href="/">BALYSTO</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                  <a class="nav-link active" aria-current="page" href="clients">Nos-clients</a>
-                  <a class="nav-link" href="a-propos">A propos de nous</a>
-                  <a class="nav-link" href="contact">Contactez-nous</a>
+                  <a class="nav-link active" aria-current="page" href="/clients">Nos-clients</a>
+                  <a class="nav-link" href="/a-propos">A propos de nous</a>
+                  <a class="nav-link" href="/contact">Contactez-nous</a>
                 </div>
               </div>
             </div>
           </nav>
 
-
+        
           <div class="container">
+           @if (session()->has('message'))
+           <div class="alert alert-success mt-2" role="alert">
+            {{session()->get('message')}}
+          </div>
+           @endif
               @yield('content')
           </div>
     </body>

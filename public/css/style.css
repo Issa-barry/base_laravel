@@ -1,4 +1,8 @@
 
+ul {list-style-type: none;}
+/*
+-----------------------------------------------------------
+*/
 .navbar-nav{
     position: relative;
     left: 20%;
@@ -18,4 +22,7 @@
 {
     margin-bottom: 25px;
 }
- 
+.show-client
+{
+    list-style-type: none;
+}
